@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Medical Question-Answering, Dataset">
+  <meta name="description" content="MIRIAD is a million scale Medical Instruction and RetrIeval Datatset">
+
+  <title>MIRIAD: Augmenting LLMs with millions of medical query-response pairs</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5C9M7TXSHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5C9M7TXSHJ');
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.18/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="vendor/image-zoom.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="assets/icon.png">
+
+  <script async src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/js/all.min.js"></script>
+  <script async src="vendor/image-zoom.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <img class="logo" src="assets/logo.png" alt="logo"> -->
+          <h1 class="title publication-title is-bold">
+            <span>S-Chain: Structured Visual Chain-of-Thought for Medicine</span>
+          </h1>
+          <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+            <!-- <img src="assets/uni_logos.png" alt="University Logo" style="width: 70%;height: 70%"> -->
+          </div>
+          <div class="is-size-6 publication-author">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/qinyue-zheng-526b391a4" target="_blank">Qinyue Zheng</a><sup>1&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.salmanabdullah.com/" target="_blank">Salman Abdullah</a><sup>2&dagger;</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://samrawal.com/">Sam Rawal MD</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cyrilzakka.github.io/" target="_blank">Cyril Zakka MD</a><sup>4</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://profiles.stanford.edu/sophie-ostmeier" target="_blank">Sophie Ostmeier MD</a><sup>2,5</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/maximilian-purk-a87978235" target="_blank">Maximilian Purk MD</a><sup>6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/edreismd/" target="_blank">Eduardo Reis MD</a><sup>7</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://www.scripps.edu/faculty/topol/" target="_blank">Eric Topol MD</a><sup>8</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://cs.stanford.edu/people/jure/" target="_blank">Jure Leskovec PhD</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://michaelmoor.me/" target="_blank">Michael Moor MD, PhD</a><sup>1&#9993</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-institution">
+            <span class="author-block"></span><sup>1</sup>Department of Biosystems Science and Engineering, ETH Zurich, Basel, Switzerland</span>
+            <span class="author-block"></span><sup>2</sup>Department of Computer Science, Stanford University, Stanford, CA, USA</span>
+            <span class="author-block"></span><sup>3</sup>Department of Internal Medicine, Mayo Clinic, Phoenix, AZ, USA</span>
+            <span class="author-block"></span><sup>4</sup>Hugging Face, Manhattan, New York City, NY, USA</span>
+            <span class="author-block"></span><sup>5</sup>Department of Radiology, Stanford University, Stanford, CA, USA</span>
+            <span class="author-block"></span><sup>6</sup>Hasso-Plattner-Institute for Digital Engineering, University of Potsdam, Potsdam, Germany</span>
+            <span class="author-block"></span><sup>7</sup>Center for Artificial Intelligence in Medicine and Imaging, Stanford University, Stanford, CA, USA</span>
+            <span class="author-block"></span><sup>8</sup>Scripps Translational Science Institute, San Diego, CA, USA</span>
+          </div>
+
+          <div class="is-size-5 publication-role">
+            <span class="author-block"><sup>&dagger;</sup><i>Equal Contribution</i></span>
+            <span class="author-block"><sup>&#9993;</sup><i>Corresponding Author</i></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/papers/2506.06091" target="_blank">
+                  <i class="button-icon far fa-paper-plane"></i>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://github.com/eth-medical-ai-lab/MIRIAD" target="_blank">
+                  <i class="button-icon fa-brands fa-github"></i>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://med-miriad.github.io/demo" target="_blank">
+                  <i class="button-icon fa-regular fa-lightbulb"></i>
+                  <span>Demo</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/miriad" target="_blank">
+                  <i class="button-icon fa-regular fa-hourglass-half"></i>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>Large language models (LLMs) are bound to transform healthcare with advanced decision support and flexible chat assistants. However, LLMs are prone to generate inaccurate medical content. In order to ground LLMs in high-quality medical knowledge, LLMs have been equipped with external knowledge sources via retrieval augmented generation (RAG), where unstructured medical knowledge is split into small chunks of text that can be selectively retrieved and integrated into the LLMs context. Yet, existing RAG pipelines rely on raw, unstructured medical text, which can be noisy, uncurated, and difficult for LLMs to effectively leverage. Systematic approaches to organize medical knowledge and to best surface it to LLMs are generally lacking. </p>
+            <p>To address these challenges, here, we introduce MIRIAD, a large-scale, curated corpus of 5,821,948 medical instruction-response pairs, each rephrased from and grounded in a passage from peer-reviewed medical literature using a semi-automated pipeline combining LLM generation, filtering, grounding, and human annotation. Unlike prior medical corpora, which rely on unstructured text, MIRIAD encapsulates rich and web-scale medical knowledge in an operationalized query-response format, which enables more targeted retrieval. Experiments on challenging medical question-answering benchmarks show that augmenting LLMs with MIRIAD improves accuracy up to 6.7% compared to unstructured RAG baselines with the same source corpus and with the same amount of retrieved text. Moreover, MIRIAD improved the ability of LLMs to detect medical hallucinations by 22.5 to 37% (increase in F1 score). </p>
+            <p>We further introduce MIRIAD-Atlas, an interactive semantic map of MIRIAD spanning 56 medical disciplines, enabling clinical users to visually explore, search, and refine medical knowledge. MIRIAD promises to unlock a wealth of down-stream applications, including medical information retrievers, enhanced RAG applications, and knowledge-grounded chat interfaces, which ultimately enables more reliable LLM applications in healthcare.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">How is MIRIAD created?</h2>
+          <img src="figures/overview.png" alt="Overview" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">What can MIRIAD be utilized for?</h2>
+          <div class="content has-text-justified">
+            <p class="is-size-5" style="padding-bottom: 30px;">
+              For both AI practitioners and clinical professionals, <kbd>MIRIAD</kbd> enables a range of down-stream use cases, including serving as a structured corpus of external knowledge for retrieval augmented generation (RAG) applications for more effective retrieval; a supervised dataset for training medical information retrievers, which contains millions of query-response pairs and metadata of information source; as well as advanced interfaces for users to visually explore, search, and navigate a structured landscape of medical queries and responses, with clickable follow-up literature.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">What does MIRIAD-Atlas look like?</h2>
+          <p class="is-size-5" style="padding-bottom: 30px;">
+            Check out the <a href="https://med-miriad.github.io/demo" target="_blank">interactive demo</a>.
+          </p>
+          <img src="figures/datamap.png" alt="Datamap" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title">Citation</h3>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <pre><code>
+            @misc{zheng2025miriadaugmentingllmsmillions,
+                  title={MIRIAD: Augmenting LLMs with millions of medical query-response pairs}, 
+                  author={Qinyue Zheng and Salman Abdullah and Sam Rawal and Cyril Zakka and Sophie Ostmeier and Maximilian Purk and Eduardo Reis and Eric J. Topol and Jure Leskovec and Michael Moor},
+                  year={2025},
+                  eprint={2506.06091},
+                  archivePrefix={arXiv},
+                  primaryClass={cs.CL},
+                  url={https://arxiv.org/abs/2506.06091}, 
+                  }
+        </code></pre>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <p>This website is modified from <a href="https://nerfies.github.io/" target="_blank">Nerfies's Project Page</a>. Source code is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

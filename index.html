@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="Medical Question-Answering, Dataset">
+  <meta name="description" content="MIRIAD is a million scale Medical Instruction and RetrIeval Datatset">
+
+  <title>S-Chain: Structured Visual Chain-of-Thought for Medicine</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5C9M7TXSHJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-5C9M7TXSHJ');
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.18/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="vendor/image-zoom.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="assets/icon.png">
+
+  <script async src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/js/all.min.js"></script>
+  <script async src="vendor/image-zoom.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <img class="logo" src="assets/logo.png" alt="logo"> -->
+          <h1 class="title publication-title is-bold">
+            <span>S-Chain: Structured Visual Chain-of-Thought for Medicine</span>
+          </h1>
+          <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+            <!-- <img src="assets/uni_logos.png" alt="University Logo" style="width: 70%;height: 70%"> -->
+          </div>
+          <div class="is-size-6 publication-author">
+            <span class="author-block">
+              <a href="./" target="_blank">Khai Le-Duc</a>
+              <sup>*</sup><sup>1,2,3</sup><sup>1&#9993</sup>,
+            </span>
+            
+            <span class="author-block">
+              <a href="./" target="_blank">Phuong T. H. Trinh</a>
+              <sup>*</sup><sup>4</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Duy M. H. Nguyen</a>
+              <sup>*</sup><sup>6,7,23</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Tien-Phat Nguyen</a>
+              <sup>*</sup><sup>9</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="./" target="_blank">Nghiem T. Diep</a>
+              <sup>6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">An Ngo</a>
+              <sup>8</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Tung Vu</a>
+              <sup>10</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Trinh Vuong</a>
+              <sup>11</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="./" target="_blank">Anh-Tien Nguyen</a>
+              <sup>12,13</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Mau Nguyen</a>
+              <sup>14</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Van Trung Hoang</a>
+              <sup>15</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Khai-Nguyen Nguyen</a>
+              <sup>8</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="./" target="_blank">Hy Nguyen</a>
+              <sup>16</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Chris Ngo</a>
+              <sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Anji Liu</a>
+              <sup>17</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Nhat Ho</a>
+              <sup>18</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="./" target="_blank">Anne-Christin Hauschild</a>
+              <sup>12</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Khanh Xuan Nguyen</a>
+              <sup>19</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Thanh Nguyen-Tang</a>
+              <sup>20</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Pengtao Xie</a>
+              <sup>21,22</sup>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="./" target="_blank">Daniel Sonntag</a>
+              <sup>5,6</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">James Zou</a>
+              <sup>24</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Mathias Niepert</a>
+              <sup>7,23</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Anh Totti Nguyen</a>
+              <sup>25</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 publication-institution">
+            <span class="author-block"><sup>1</sup>University of Toronto</span>
+            <span class="author-block"><sup>2</sup>University Health Network, Canada</span>
+            <span class="author-block"><sup>3</sup>Knovel Engineering Lab, Singapore</span>
+            <br>
+            <span class="author-block"><sup>4</sup>Nuclear Medicine Department, Chonnam National University</span>
+            <span class="author-block"><sup>5</sup>Oldenburg University, Germany</span>
+            <br>
+            <span class="author-block"><sup>6</sup>German Research Centre for Artificial Intelligence</span>
+            <span class="author-block"><sup>7</sup>University of Stuttgart, Germany</span>
+            <br>
+            <span class="author-block"><sup>8</sup>Bucknell University, USA</span>
+            <span class="author-block"><sup>9</sup>Singapore University of Technology and Design</span>
+            <br>
+            <span class="author-block"><sup>10</sup>Concordia University, Canada</span>
+            <span class="author-block"><sup>11</sup>Korea University</span>
+            <span class="author-block"><sup>12</sup>Justus Liebig University Giessen, Germany</span>
+            <br>
+            <span class="author-block"><sup>13</sup>University Medical Center Gottingen, Germany</span>
+            <span class="author-block"><sup>14</sup>Japan Advanced Institute of Science and Technology</span>
+            <br>
+            <span class="author-block"><sup>15</sup>Department of Radiology, Hue University, Vietnam</span>
+            <span class="author-block"><sup>16</sup>Deakin University Australia</span>
+            <br>
+            <span class="author-block"><sup>17</sup>National University of Singapore</span>
+            <span class="author-block"><sup>18</sup>University of Texas at Austin</span>
+            <span class="author-block"><sup>19</sup>University of California, Berkeley</span>
+            <br>
+            <span class="author-block"><sup>20</sup>Johns Hopkins University</span>
+            <span class="author-block"><sup>21</sup>University of California San Diego</span>
+            <span class="author-block"><sup>22</sup>MBZUAI</span>
+            <br>
+            <span class="author-block"><sup>23</sup>Max Planck Research School for Intelligent Systems (IMPRS-IS)</span>
+            <span class="author-block"><sup>24</sup>Stanford University</span>
+            <span class="author-block"><sup>25</sup>Auburn University, USA</span>
+          </div>
+
+          <div class="is-size-5 publication-role">
+            <span class="author-block"><sup>&dagger;</sup><i>Equal Contribution</i></span>
+            <span class="author-block"><sup>&#9993;</sup><i>Corresponding Author</i></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/papers/2506.06091" target="_blank">
+                  <i class="button-icon far fa-paper-plane"></i>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://github.com/eth-medical-ai-lab/MIRIAD" target="_blank">
+                  <i class="button-icon fa-brands fa-github"></i>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://med-miriad.github.io/demo" target="_blank">
+                  <i class="button-icon fa-regular fa-lightbulb"></i>
+                  <span>Demo</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/miriad" target="_blank">
+                  <i class="button-icon fa-regular fa-hourglass-half"></i>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>Faithful reasoning in medical vision–language models (VLMs) requires not only accurate predictions but also transparent alignment between textual rationales and visual evidence. While Chain-of-Thought (CoT) prompting has shown promise in medical visual question answering (VQA), no large-scale expert-level dataset has captured stepwise reasoning with precise visual grounding. We introduce <strong>S-Chain</strong>, the first large-scale dataset of 12,000 expert-annotated medical images with bounding-boxes and structured visual CoT (SV-CoT), explicitly linking visual regions to reasoning steps. The dataset further supports 16 languages, totaling over 700k VQA pairs for broad multilingual applicability.</p>
+            <p>Using S-Chain, we benchmark state-of-the-art medical VLMs (ExGra-Med, LLaVA-Med) and general-purpose VLMs (Qwen2.5-VL, InternVL2.5), showing that SV-CoT supervision significantly improves interpretability, grounding fidelity, and robustness. Beyond benchmarking, we study its synergy with retrieval-augmented generation, revealing how domain knowledge and visual grounding interact during autoregressive reasoning. Finally, we propose a new mechanism that strengthens the alignment between visual evidence and reasoning, improving both reliability and efficiency. S-Chain establishes a new benchmark for grounded medical reasoning and paves the way toward more trustworthy and explainable medical VLMs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">How is MIRIAD created?</h2>
+          <img src="figures/overview.png" alt="Overview" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">What can MIRIAD be utilized for?</h2>
+          <div class="content has-text-justified">
+            <p class="is-size-5" style="padding-bottom: 30px;">
+              For both AI practitioners and clinical professionals, <kbd>MIRIAD</kbd> enables a range of down-stream use cases, including serving as a structured corpus of external knowledge for retrieval augmented generation (RAG) applications for more effective retrieval; a supervised dataset for training medical information retrievers, which contains millions of query-response pairs and metadata of information source; as well as advanced interfaces for users to visually explore, search, and navigate a structured landscape of medical queries and responses, with clickable follow-up literature.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title">What does MIRIAD-Atlas look like?</h2>
+          <p class="is-size-5" style="padding-bottom: 30px;">
+            Check out the <a href="https://med-miriad.github.io/demo" target="_blank">interactive demo</a>.
+          </p>
+          <img src="figures/datamap.png" alt="Datamap" data-zoom-image />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title">Citation</h3>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <pre><code>
+            @misc{zheng2025miriadaugmentingllmsmillions,
+                  title={MIRIAD: Augmenting LLMs with millions of medical query-response pairs}, 
+                  author={Qinyue Zheng and Salman Abdullah and Sam Rawal and Cyril Zakka and Sophie Ostmeier and Maximilian Purk and Eduardo Reis and Eric J. Topol and Jure Leskovec and Michael Moor},
+                  year={2025},
+                  eprint={2506.06091},
+                  archivePrefix={arXiv},
+                  primaryClass={cs.CL},
+                  url={https://arxiv.org/abs/2506.06091}, 
+                  }
+        </code></pre>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content">
+            <p>This website is modified from <a href="https://nerfies.github.io/" target="_blank">Nerfies's Project Page</a>. Source code is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
