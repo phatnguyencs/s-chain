@@ -238,22 +238,28 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title">How is MIRIAD created?</h2>
-          <img src="figures/overview.png" alt="Overview" data-zoom-image />
+          <h2 class="title">Overview of the S-Chain dataset</h2>
+          <img src="figures/main_pipeline.png" alt="S-Chain SV-CoT pipeline" data-zoom-image />
+          <p class="is-size-6" style="margin-top: 10px;">
+            S-Chain provides structured visual Chain-of-Thought (SV-CoT) that grounds stepwise reasoning to regions of interest (ROI).
+          </p>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <h2 class="title">What can MIRIAD be utilized for?</h2>
-          <div class="content has-text-justified">
-            <p class="is-size-5" style="padding-bottom: 30px;">
-              For both AI practitioners and clinical professionals, <kbd>MIRIAD</kbd> enables a range of down-stream use cases, including serving as a structured corpus of external knowledge for retrieval augmented generation (RAG) applications for more effective retrieval; a supervised dataset for training medical information retrievers, which contains millions of query-response pairs and metadata of information source; as well as advanced interfaces for users to visually explore, search, and navigate a structured landscape of medical queries and responses, with clickable follow-up literature.
-            </p>
+          <div class="content has-text-left">
+            <ul>
+              <li><strong>Structured SV-CoT (Q1&ndash;Q4)</strong>: 
+                Q1 ROI localization (bounding boxes) &rarr; Q2 lesion descriptions &rarr; Q3 grading with standardized scales (Scheltens/MTA, Pasquier/GCA, Koedam) &rarr; Q4 final diagnosis. Each reasoning step is explicitly linked to ROI.</li>
+              <li><strong>Data collection</strong>:
+                Sourced from the OASIS cross-sectional Alzheimer’s MRI dataset (Apache 2.0). Representative 2D slices are selected from 3D volumes across Non-, Mild-, and Moderate-dementia cohorts.</li>
+              <li><strong>Annotation pipeline</strong>:
+                Three trained doctors annotate independently then reach consensus; they localize ROI with boxes, write brief reasoning notes, and assign standardized visual ratings. All QA pairs are extended to 16 languages by certified linguists. ~700 hours of expert labor.</li>
+              <li><strong>Scale and splits</strong>:
+                12,325 images; 700k+ QA pairs; 16 languages; 64 patients with non-overlapping train/test (Train: 10,783 images; Test: 1,542 images). Test distribution mirrors clinical cohorts (Non 36%, Mild 27%, Mod 36%).</li>
+              <li><strong>Training recipe</strong>:
+                Autoregressive supervised fine-tuning (SFT) to generate Y1&ndash;Y4 in sequence with teacher forcing, improving interpretability and grounding.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -264,11 +270,14 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title">What does MIRIAD-Atlas look like?</h2>
-          <p class="is-size-5" style="padding-bottom: 30px;">
-            Check out the <a href="https://med-miriad.github.io/demo" target="_blank">interactive demo</a>.
-          </p>
-          <img src="figures/datamap.png" alt="Datamap" data-zoom-image />
+          <h2 class="title">Experimental validation</h2>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <img src="figures/s_chain_experiment_fig2.png" alt="Medical VLMs results" data-zoom-image />
+          <br><br>
+          <img src="figures/s_chain_experiment_general_MLLMs.png" alt="General VLMs results" data-zoom-image />
         </div>
       </div>
     </div>
@@ -283,7 +292,8 @@
       </div>
       <div class="columns is-centered">
         <pre><code>
-            @misc{zheng2025miriadaugmentingllmsmillions,
+            TBU
+            <!-- @misc{zheng2025miriadaugmentingllmsmillions,
                   title={MIRIAD: Augmenting LLMs with millions of medical query-response pairs}, 
                   author={Qinyue Zheng and Salman Abdullah and Sam Rawal and Cyril Zakka and Sophie Ostmeier and Maximilian Purk and Eduardo Reis and Eric J. Topol and Jure Leskovec and Michael Moor},
                   year={2025},
@@ -291,7 +301,7 @@
                   archivePrefix={arXiv},
                   primaryClass={cs.CL},
                   url={https://arxiv.org/abs/2506.06091}, 
-                  }
+                  } -->
         </code></pre>
       </div>
     </div>
