@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="Medical Question-Answering, Dataset">
-  <meta name="description" content="MIRIAD is a million scale Medical Instruction and RetrIeval Datatset">
+  <meta name="keywords" content="Medical Question-Answering, Dataset, Vision-Language Models, Chain-of-Thought">
+  <meta name="description" content="S-Chain is a large-scale dataset for Structured Visual Chain-of-Thought in Medicine.">
 
   <title>S-Chain: Structured Visual Chain-of-Thought for Medicine</title>
 
@@ -19,13 +19,42 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/nunito@5.0.18/index.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/fontawesome.min.css">
-  <link rel="stylesheet" href="vendor/image-zoom.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+
+  <style>
+    :root {
+      --bulma-body-family: "Nunito", sans-serif;
+    }
+    .publication-title {
+      margin-bottom: 1rem;
+    }
+    .publication-author {
+      margin-bottom: 1rem;
+    }
+    .publication-institution {
+      margin-bottom: 1rem;
+    }
+    .publication-role {
+      margin-bottom: 1.5rem;
+    }
+    .button-icon {
+      margin-right: 0.5rem;
+    }
+    .content h4 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .results-table img {
+      max-width: 100%;
+      border-radius: 8px;
+      border: 1px solid #dbdbdb;
+    }
+  </style>
   <link rel="icon" href="assets/icon.png">
 
-  <script async src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/js/all.min.js"></script>
-  <script async src="vendor/image-zoom.js"></script>
 </head>
 
 <body>
@@ -33,115 +62,84 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <!-- <img class="logo" src="assets/logo.png" alt="logo"> -->
           <h1 class="title publication-title is-bold">
             <span>S-Chain: Structured Visual Chain-of-Thought for Medicine</span>
           </h1>
-          <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-            <!-- <img src="assets/uni_logos.png" alt="University Logo" style="width: 70%;height: 70%"> -->
-          </div>
           <div class="is-size-6 publication-author">
             <span class="author-block">
-              <a href="./" target="_blank">Khai Le-Duc</a>
-              <sup>*</sup><sup>1,2,3</sup><sup>1&#9993</sup>,
-            </span>
-            
-            <span class="author-block">
-              <a href="./" target="_blank">Phuong T. H. Trinh</a>
-              <sup>*</sup><sup>4</sup>,
+              <a href="./" target="_blank">Khai Le-Duc</a><sup>*1,2,3&#9993;</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Duy M. H. Nguyen</a>
-              <sup>*</sup><sup>6,7,23</sup>,
+              <a href="./" target="_blank">Phuong T. H. Trinh</a><sup>*4</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Tien-Phat Nguyen</a>
-              <sup>*</sup><sup>9</sup>,
+              <a href="./" target="_blank">Duy M. H. Nguyen</a><sup>*6,7,23</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Tien-Phat Nguyen</a><sup>*9</sup>,
             </span>
             <br>
             <span class="author-block">
-              <a href="./" target="_blank">Nghiem T. Diep</a>
-              <sup>6</sup>,
+              <a href="./" target="_blank">Nghiem T. Diep</a><sup>6</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">An Ngo</a>
-              <sup>8</sup>,
+              <a href="./" target="_blank">An Ngo</a><sup>8</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Tung Vu</a>
-              <sup>10</sup>,
+              <a href="./" target="_blank">Tung Vu</a><sup>10</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Trinh Vuong</a>
-              <sup>11</sup>,
-            </span>
-            <br>
-            <span class="author-block">
-              <a href="./" target="_blank">Anh-Tien Nguyen</a>
-              <sup>12,13</sup>,
+              <a href="./" target="_blank">Trinh Vuong</a><sup>11</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Mau Nguyen</a>
-              <sup>14</sup>,
+              <a href="./" target="_blank">Anh-Tien Nguyen</a><sup>12,13</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Van Trung Hoang</a>
-              <sup>15</sup>,
+              <a href="./" target="_blank">Mau Nguyen</a><sup>14</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Khai-Nguyen Nguyen</a>
-              <sup>8</sup>,
+              <a href="./" target="_blank">Van Trung Hoang</a><sup>15</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Khai-Nguyen Nguyen</a><sup>8</sup>,
             </span>
             <br>
             <span class="author-block">
-              <a href="./" target="_blank">Hy Nguyen</a>
-              <sup>16</sup>,
+              <a href="./" target="_blank">Hy Nguyen</a><sup>16</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Chris Ngo</a>
-              <sup>3</sup>,
+              <a href="./" target="_blank">Chris Ngo</a><sup>3</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Anji Liu</a>
-              <sup>17</sup>,
+              <a href="./" target="_blank">Anji Liu</a><sup>17</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Nhat Ho</a>
-              <sup>18</sup>,
-            </span>
-            <br>
-            <span class="author-block">
-              <a href="./" target="_blank">Anne-Christin Hauschild</a>
-              <sup>12</sup>,
+              <a href="./" target="_blank">Nhat Ho</a><sup>18</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Khanh Xuan Nguyen</a>
-              <sup>19</sup>,
+              <a href="./" target="_blank">Anne-Christin Hauschild</a><sup>12</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Thanh Nguyen-Tang</a>
-              <sup>20</sup>,
+              <a href="./" target="_blank">Khanh Xuan Nguyen</a><sup>19</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Pengtao Xie</a>
-              <sup>21,22</sup>,
+              <a href="./" target="_blank">Thanh Nguyen-Tang</a><sup>20</sup>,
+            </span>
+            <span class="author-block">
+              <a href="./" target="_blank">Pengtao Xie</a><sup>21,22</sup>,
             </span>
             <br>
             <span class="author-block">
-              <a href="./" target="_blank">Daniel Sonntag</a>
-              <sup>5,6</sup>,
+              <a href="./" target="_blank">Daniel Sonntag</a><sup>5,6</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">James Zou</a>
-              <sup>24</sup>,
+              <a href="./" target="_blank">James Zou</a><sup>24</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Mathias Niepert</a>
-              <sup>7,23</sup>,
+              <a href="./" target="_blank">Mathias Niepert</a><sup>7,23</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Anh Totti Nguyen</a>
-              <sup>25</sup>
+              <a href="./" target="_blank">Anh Totti Nguyen</a><sup>25</sup>
             </span>
           </div>
 
@@ -149,68 +147,59 @@
             <span class="author-block"><sup>1</sup>University of Toronto</span>
             <span class="author-block"><sup>2</sup>University Health Network, Canada</span>
             <span class="author-block"><sup>3</sup>Knovel Engineering Lab, Singapore</span>
-            <br>
             <span class="author-block"><sup>4</sup>Nuclear Medicine Department, Chonnam National University</span>
             <span class="author-block"><sup>5</sup>Oldenburg University, Germany</span>
-            <br>
             <span class="author-block"><sup>6</sup>German Research Centre for Artificial Intelligence</span>
             <span class="author-block"><sup>7</sup>University of Stuttgart, Germany</span>
-            <br>
             <span class="author-block"><sup>8</sup>Bucknell University, USA</span>
             <span class="author-block"><sup>9</sup>Singapore University of Technology and Design</span>
-            <br>
             <span class="author-block"><sup>10</sup>Concordia University, Canada</span>
             <span class="author-block"><sup>11</sup>Korea University</span>
             <span class="author-block"><sup>12</sup>Justus Liebig University Giessen, Germany</span>
-            <br>
             <span class="author-block"><sup>13</sup>University Medical Center Gottingen, Germany</span>
             <span class="author-block"><sup>14</sup>Japan Advanced Institute of Science and Technology</span>
-            <br>
             <span class="author-block"><sup>15</sup>Department of Radiology, Hue University, Vietnam</span>
             <span class="author-block"><sup>16</sup>Deakin University Australia</span>
-            <br>
             <span class="author-block"><sup>17</sup>National University of Singapore</span>
             <span class="author-block"><sup>18</sup>University of Texas at Austin</span>
             <span class="author-block"><sup>19</sup>University of California, Berkeley</span>
-            <br>
             <span class="author-block"><sup>20</sup>Johns Hopkins University</span>
             <span class="author-block"><sup>21</sup>University of California San Diego</span>
             <span class="author-block"><sup>22</sup>MBZUAI</span>
-            <br>
             <span class="author-block"><sup>23</sup>Max Planck Research School for Intelligent Systems (IMPRS-IS)</span>
             <span class="author-block"><sup>24</sup>Stanford University</span>
             <span class="author-block"><sup>25</sup>Auburn University, USA</span>
           </div>
 
           <div class="is-size-5 publication-role">
-            <span class="author-block"><sup>&dagger;</sup><i>Equal Contribution</i></span>
+            <span class="author-block"><sup>*</sup><i>Equal Contribution</i></span>
             <span class="author-block"><sup>&#9993;</sup><i>Corresponding Author</i></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/papers/2506.06091" target="_blank">
-                  <i class="button-icon far fa-paper-plane"></i>
-                  <span>arXiv</span>
+                <a class="button is-normal is-rounded is-dark" href="[LINK_TO_ARXIV]" target="_blank">
+                  <i class="button-icon fas fa-file-pdf"></i>
+                  <span>Paper</span>
                 </a>
               </span>
               <span class="link-block">
-                <a class="button is-normal is-rounded is-dark" href="https://github.com/eth-medical-ai-lab/MIRIAD" target="_blank">
-                  <i class="button-icon fa-brands fa-github"></i>
+                <a class="button is-normal is-rounded is-dark" href="[LINK_TO_CODE]" target="_blank">
+                  <i class="button-icon fab fa-github"></i>
                   <span>Code</span>
                 </a>
               </span>
-              <!-- <span class="link-block">
-                <a class="button is-normal is-rounded is-dark" href="https://med-miriad.github.io/demo" target="_blank">
-                  <i class="button-icon fa-regular fa-lightbulb"></i>
-                  <span>Demo</span>
-                </a>
-              </span> -->
               <span class="link-block">
-                <a class="button is-normal is-rounded is-dark" href="https://huggingface.co/miriad" target="_blank">
-                  <i class="button-icon fa-regular fa-hourglass-half"></i>
+                <a class="button is-normal is-rounded is-dark" href="[LINK_TO_DATASET]" target="_blank">
+                  <i class="button-icon fas fa-database"></i>
                   <span>Dataset</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a class="button is-normal is-rounded is-dark" href="#demo">
+                  <i class="button-icon fas fa-flask"></i>
+                  <span>Demo</span>
                 </a>
               </span>
             </div>
@@ -226,9 +215,9 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Faithful reasoning in medical vision–language models (VLMs) requires not only accurate predictions but also transparent alignment between textual rationales and visual evidence. While Chain-of-Thought (CoT) prompting has shown promise in medical visual question answering (VQA), no large-scale expert-level dataset has captured stepwise reasoning with precise visual grounding. We introduce <strong>S-Chain</strong>, the first large-scale dataset of 12,000 expert-annotated medical images with bounding-boxes and structured visual CoT (SV-CoT), explicitly linking visual regions to reasoning steps. The dataset further supports 16 languages, totaling over 700k VQA pairs for broad multilingual applicability.</p>
-            <p>Using S-Chain, we benchmark state-of-the-art medical VLMs (ExGra-Med, LLaVA-Med) and general-purpose VLMs (Qwen2.5-VL, InternVL2.5), showing that SV-CoT supervision significantly improves interpretability, grounding fidelity, and robustness. Beyond benchmarking, we study its synergy with retrieval-augmented generation, revealing how domain knowledge and visual grounding interact during autoregressive reasoning. Finally, we propose a new mechanism that strengthens the alignment between visual evidence and reasoning, improving both reliability and efficiency. S-Chain establishes a new benchmark for grounded medical reasoning and paves the way toward more trustworthy and explainable medical VLMs.</p>
+            <p>Faithful reasoning in medical vision–language models (VLMs) requires not only accurate predictions but also transparent alignment between textual rationales and visual evidence. While Chain-of-Thought (CoT) prompting has shown promise in medical visual question answering (VQA), no large-scale expert-level dataset has captured stepwise reasoning with precise visual grounding. We introduce <strong>S-Chain</strong>, the first large-scale dataset of 12,000 expert-annotated medical images with bounding-boxes and structured visual CoT (SV-CoT), explicitly linking visual regions to reasoning steps. The dataset further supports 16 languages, totaling over 700k VQA pairs for broad multilingual applicability. Using S-Chain, we benchmark state-of-the-art medical VLMs, showing that SV-CoT supervision significantly improves interpretability, grounding fidelity, and robustness. S-Chain establishes a new benchmark for grounded medical reasoning and paves the way toward more trustworthy and explainable medical VLMs.</p>
           </div>
+          <img src="figures/main_pipeline.png" alt="S-Chain annotation pipeline" />
         </div>
       </div>
     </div>
@@ -236,77 +225,192 @@
 
   <section class="section">
     <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title">Key Contributions</h2>
+            </div>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-four-fifths">
+                <div class="content has-text-left">
+                    <ul>
+                        <li><strong>Dataset Innovation:</strong> We introduce <strong>S-Chain</strong>, the first large-scale medical dataset with 12k images featuring expert-verified, visually-grounded reasoning traces. It includes over 700k multilingual QA pairs across 16 languages.</li>
+                        <li><strong>Superiority over Synthetic Data:</strong> We demonstrate that training with S-Chain's expert annotations consistently and significantly outperforms models trained with synthetic CoTs generated by state-of-the-art models like GPT-4.1.</li>
+                        <li><strong>Analytical Insights:</strong> We provide a deep dive into how structured reasoning interacts with Retrieval-Augmented Generation (RAG) and propose a new method to improve the faithfulness of the model's reasoning to the visual evidence.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title">Overview of the S-Chain dataset</h2>
-          <img src="figures/main_pipeline.png" alt="S-Chain SV-CoT pipeline" data-zoom-image />
-          <p class="is-size-6" style="margin-top: 10px;">
-            S-Chain provides structured visual Chain-of-Thought (SV-CoT) that grounds stepwise reasoning to regions of interest (ROI).
-          </p>
+          <h2 class="title">The S-Chain Dataset & Method</h2>
+          <p>Our dataset was meticulously created through a six-step annotation pipeline involving three trained doctors and professional linguists, requiring over 700 hours of expert labor.</p>
+          <!-- Placeholder for annotation pipeline figure from paper -->
+          <img src="figures/annotation_pipeline.png" alt="S-Chain annotation pipeline" />
         </div>
       </div>
-      <div class="columns is-centered">
+      <div class="columns is-centered" style="margin-top: 2rem;">
         <div class="column is-four-fifths">
-          <div class="content has-text-left">
-            <ul>
-              <li><strong>Structured SV-CoT (Q1&ndash;Q4)</strong>: 
-                Q1 ROI localization (bounding boxes) &rarr; Q2 lesion descriptions &rarr; Q3 grading with standardized scales (Scheltens/MTA, Pasquier/GCA, Koedam) &rarr; Q4 final diagnosis. Each reasoning step is explicitly linked to ROI.</li>
-              <li><strong>Data collection</strong>:
-                Sourced from the OASIS cross-sectional Alzheimer’s MRI dataset (Apache 2.0). Representative 2D slices are selected from 3D volumes across Non-, Mild-, and Moderate-dementia cohorts.</li>
-              <li><strong>Annotation pipeline</strong>:
-                Three trained doctors annotate independently then reach consensus; they localize ROI with boxes, write brief reasoning notes, and assign standardized visual ratings. All QA pairs are extended to 16 languages by certified linguists. ~700 hours of expert labor.</li>
-              <li><strong>Scale and splits</strong>:
-                12,325 images; 700k+ QA pairs; 16 languages; 64 patients with non-overlapping train/test (Train: 10,783 images; Test: 1,542 images). Test distribution mirrors clinical cohorts (Non 36%, Mild 27%, Mod 36%).</li>
-              <li><strong>Training recipe</strong>:
-                Autoregressive supervised fine-tuning (SFT) to generate Y1&ndash;Y4 in sequence with teacher forcing, improving interpretability and grounding.</li>
-            </ul>
+          <div class="content has-text-justified">
+            <p>The dataset is built from the OASIS MRI dataset and is split to ensure no patient overlap between the training and testing sets, with a distribution that mirrors real-world clinical cohorts.</p>
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Split</th>
+                  <th># Images</th>
+                  <th># QA pairs</th>
+                  <th># Patients</th>
+                  <th>Non-Dementia</th>
+                  <th>Mild-Dementia</th>
+                  <th>Mod-Dementia</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Train</strong></td>
+                  <td>10,783</td>
+                  <td>~690k</td>
+                  <td>55</td>
+                  <td>4,628</td>
+                  <td>4,755</td>
+                  <td>1,400</td>
+                </tr>
+                <tr>
+                  <td><strong>Test</strong></td>
+                  <td>1,542</td>
+                  <td>~98k</td>
+                  <td>9</td>
+                  <td>562</td>
+                  <td>420</td>
+                  <td>560</td>
+                </tr>
+                <tr>
+                  <td><strong>Total</strong></td>
+                  <td><strong>12,325</strong></td>
+                  <td><strong>~788k</strong></td>
+                  <td><strong>64</strong></td>
+                  <td><strong>5,190</strong></td>
+                  <td><strong>5,175</strong></td>
+                  <td><strong>1,960</strong></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="section" id="demo">
+      <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                  <h2 class="title">Interactive Demo</h2>
+                  <div class="content has-text-justified">
+                      <p><em>(Đoạn này chắc mình thêm vài ảnh demo như anh nhắn ấy: image đầu vào, groundtruth chain, model generated chain)</em></p>
+                      <p><strong>Try S-Chain!</strong> Select an image to see the model in action.</p>
+                      <div class="buttons is-centered">
+                          <button class="button is-info">[Sample Image 1]</button>
+                          <button class="button is-info">[Sample Image 2]</button>
+                          <button class="button is-info">[Sample Image 3]</button>
+                      </div>
+                      <p><em>(The interface would then display the image and the generated output from model.)</em></p>
+                  </div>
+              </div>
+          </div>
+      </div>
   </section>
   
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title">Experimental validation</h2>
+          <h2 class="title">Results & Findings</h2>
         </div>
       </div>
       <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <img src="figures/s_chain_experiment_fig2.png" alt="Medical VLMs results" data-zoom-image />
-          <br><br>
-          <img src="figures/s_chain_experiment_general_MLLMs.png" alt="General VLMs results" data-zoom-image />
+        <div class="column is-four-fifths content has-text-justified">
+          <h4>1. The Value of Expert Annotations vs. Synthetic Data</h4>
+          <p>A core finding of our work is that expert-annotated, structured data is crucial for reliable medical reasoning. Models trained with S-Chain <strong>consistently outperform baselines trained on synthetic CoTs generated by GPT-4.1 by 4-5%</strong>.</p>
+          <img src="figures/s_chain_experiment_fig2.png" alt="Medical VLMs results" />
+          <p style="margin-top: 1rem;">Synthetic data often suffers from hallucinations, such as incorrect or missing bounding boxes, which undermines the model's ability to ground its reasoning in visual evidence.</p>
+          <table class="table is-bordered results-table">
+              <thead>
+                  <tr>
+                      <th class="has-text-centered">GPT-4.1 Generated CoT (Failure Case)</th>
+                      <th class="has-text-centered">S-Chain Ground Truth (Correct)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><img src="figures/gpt_failure.png" alt="GPT-4.1 hallucination example"></td>
+                      <td><img src="figures/s_chain_correct.png" alt="S-Chain ground truth example"></td>
+                  </tr>
+                  <tr>
+                      <td><em>GPT-4.1 hallucinates an "extra-axial lesion" that is not present.</em></td>
+                      <td><em>The S-Chain annotation correctly identifies "no atrophy".</em></td>
+                  </tr>
+              </tbody>
+          </table>
+
+          <h4>2. Synergy with External Medical Knowledge (MedRAG)</h4>
+          <p>While S-Chain provides strong visual grounding, we found that combining it with external medical knowledge via Retrieval-Augmented Generation (RAG) yields the best performance.</p>
+          <ul>
+            <li>SV-CoT supervision alone provides a major boost (up to <strong>+13.5%</strong> Accuracy).</li>
+            <li>Combining SV-CoT with MedRAG leads to the highest gains (up to <strong>+15.4%</strong> Accuracy), showing that grounded reasoning and external knowledge are complementary.</li>
+          </ul>
+
+          <h4>3. Toward More Faithful Reasoning</h4>
+          <p>We discovered that models can produce plausible-sounding reasoning without faithfully attending to the specified visual regions. To address this, we proposed a new training strategy that explicitly encourages the model's textual reasoning (the CoT) to align with the visual tokens from the correct region of interest (ROI). This lightweight regularization measurably improves performance, pushing ExGra-Med's accuracy from 60.4% to <strong>62.5%</strong>.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section">
+      <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                  <h2 class="title">Limitations and Future Work</h2>
+              </div>
+          </div>
+          <div class="columns is-centered">
+              <div class="column is-four-fifths content has-text-justified">
+                  <p>While S-Chain is a significant step forward, we acknowledge its limitations. The dataset currently has limited diagnostic coverage and follows a linear reasoning path that simplifies complex clinical workflows.</p>
+                  <p>Future work should focus on expanding the dataset and developing more advanced models. Key research directions include large-scale grounded pre-training, new cross-modal contrastive objectives, and faithful decoding strategies to ensure VLMs are not only accurate but truly clinically trustworthy.</p>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h3 class="title">Citation</h3>
+          <h2 class="title">Citation</h2>
         </div>
       </div>
       <div class="columns is-centered">
-        <pre><code>
-            TBU
-            <!-- @misc{zheng2025miriadaugmentingllmsmillions,
-                  title={MIRIAD: Augmenting LLMs with millions of medical query-response pairs}, 
-                  author={Qinyue Zheng and Salman Abdullah and Sam Rawal and Cyril Zakka and Sophie Ostmeier and Maximilian Purk and Eduardo Reis and Eric J. Topol and Jure Leskovec and Michael Moor},
-                  year={2025},
-                  eprint={2506.06091},
-                  archivePrefix={arXiv},
-                  primaryClass={cs.CL},
-                  url={https://arxiv.org/abs/2506.06091}, 
-                  } -->
-        </code></pre>
+        <div class="column is-four-fifths">
+          <pre style="white-space: pre-wrap; word-wrap: break-word;"><code>
+@misc{leduc2024schain,
+      title={S-Chain: Structured Visual Chain-of-Thought for Medicine}, 
+      author={Khai Le-Duc and Phuong T. H. Trinh and Duy M. H. Nguyen and Tien-Phat Nguyen and Nghiem T. Diep and An Ngo and Tung Vu and Trinh Vuong and Anh-Tien Nguyen and Mau Nguyen and Van Trung Hoang and Khai-Nguyen Nguyen and Hy Nguyen and Chris Ngo and Anji Liu and Nhat Ho and Anne-Christin Hauschild and Khanh Xuan Nguyen and Thanh Nguyen-Tang and Pengtao Xie and Daniel Sonntag and James Zou and Mathias Niepert and Anh Totti Nguyen},
+      year={2024},
+      eprint={...},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+          </code></pre>
+        </div>
       </div>
     </div>
   </section>
-
 
   <footer class="footer">
     <div class="container">
