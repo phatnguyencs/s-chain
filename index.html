@@ -94,15 +94,16 @@
             <span>S-Chain: Structured Visual Chain-of-Thought for Medicine</span>
           </h1>
           
-          <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap;">
-            <img src="figures/schools/dfki.png" alt="DFKI Logo" style="height: 100px; object-fit: contain;">
+          <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+            <img src="figures/schools/dfki.png" alt="DFKI Logo" style="height: 90px; object-fit: contain;">
             <img src="figures/schools/imprs.png" alt="IMPRS-IS Logo" style="height: 100px; object-fit: contain;">
             <img src="figures/schools/utoronto.png" alt="UToronto Logo" style="height: 100px; object-fit: contain;">
-            <img src="figures/schools/sutd.jpg" alt="SUTD Logo" style="height: 100px; object-fit: contain;">
+            <img src="figures/schools/sutd.jpg" alt="SUTD Logo" style="height: 90px; object-fit: contain;">
+            <img src="figures/schools/stuttgart.png" alt="Stuttgart Logo" style="height: 110px; object-fit: contain;">
             <img src="figures/schools/UCSD.png" alt="UCSD Logo" style="height: 100px; object-fit: contain;">
-            <img src="figures/schools/stanford.png" alt="Stanford Logo" style="height: 100px; object-fit: contain;">
+            <img src="figures/schools/stanford.png" alt="Stanford Logo" style="height: 130px; object-fit: contain;">
             <img src="figures/schools/auburn.png" alt="Auburn Logo" style="height: 80px; object-fit: contain;">
-            <img src="figures/schools/mbzuai.png" alt="MBZUAI Logo" style="height: 100px; object-fit: contain;">
+            <img src="figures/schools/mbzuai.png" alt="MBZUAI Logo" style="height: 110px; object-fit: contain;">
           </div>
           
           <div class="is-size-6 publication-author">
@@ -110,10 +111,10 @@
               <a href="./" target="_blank">Khai Le-Duc</a><sup>*1,2,3&#9993;</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Phuong T. H. Trinh</a><sup>*4</sup>,
+              <a href="./" target="_blank">Duy M. H. Nguyen</a><sup>*6,7,23</sup>,
             </span>
             <span class="author-block">
-              <a href="./" target="_blank">Duy M. H. Nguyen</a><sup>*6,7,23</sup>,
+              <a href="./" target="_blank">Phuong T. H. Trinh</a><sup>*4</sup>,
             </span>
             <span class="author-block">
               <a href="./" target="_blank">Tien-Phat Nguyen</a><sup>*9</sup>,
@@ -257,7 +258,7 @@
         <div class="column is-four-fifths">
           <h2 class="title">Abstract</h2>
           <div class="content has-text-justified">
-            <p>Faithful reasoning in medical vision–language models (VLMs) requires not only accurate predictions but also transparent alignment between textual rationales and visual evidence. While Chain-of-Thought (CoT) prompting has shown promise in medical visual question answering (VQA), no large-scale expert-level dataset has captured stepwise reasoning with precise visual grounding. We introduce <strong>S-Chain</strong>, the first large-scale dataset of 12,000 expert-annotated medical images with bounding-boxes and structured visual CoT (SV-CoT), explicitly linking visual regions to reasoning steps. The dataset further supports 16 languages, totaling over 700k VQA pairs for broad multilingual applicability. Using S-Chain, we benchmark state-of-the-art medical VLMs, showing that SV-CoT supervision significantly improves interpretability, grounding fidelity, and robustness. S-Chain establishes a new benchmark for grounded medical reasoning and paves the way toward more trustworthy and explainable medical VLMs.</p>
+            <p>Faithful reasoning in medical vision–language models (VLMs) requires not only accurate predictions but also transparent alignment between textual rationales and visual evidence. While Chain-of-Thought (CoT) prompting has shown promise in medical visual question answering (VQA), no large-scale expert-level dataset has captured stepwise reasoning with precise visual grounding. We introduce <strong>S-Chain</strong>, the first large-scale dataset of <strong>12,000 expert-annotated medical images</strong> with bounding-boxes and structured visual CoT (SV-CoT), explicitly linking visual regions to reasoning steps. The dataset further supports <strong>16 languages</strong>, totaling over 700k VQA pairs for broad multilingual applicability. Using S-Chain, we benchmark state-of-the-art medical VLMs, showing that SV-CoT supervision significantly improves interpretability, grounding fidelity, and robustness. S-Chain establishes a new benchmark for grounded medical reasoning and paves the way toward more trustworthy and explainable medical VLMs.</p>
           </div>
           <img src="figures/main_pipeline.png" alt="S-Chain annotation pipeline" />
         </div>
@@ -276,7 +277,7 @@
             <div class="column is-four-fifths">
                 <div class="content has-text-left">
                     <ul>
-                        <li><strong>Dataset Innovation:</strong> We introduce <strong>S-Chain</strong>, the first large-scale medical dataset with 12k images featuring expert-verified, visually-grounded reasoning traces. It includes over 700k multilingual QA pairs across 16 languages.</li>
+                        <li><strong>Dataset Innovation:</strong> We introduce <strong>S-Chain</strong>, the first large-scale medical dataset with <strong>12k images</strong> featuring expert-verified, visually-grounded reasoning traces. It includes over 700k multilingual QA pairs across <strong>16 languages</strong>.</li>
                         <li><strong>Superiority over Synthetic Data:</strong> We demonstrate that training with S-Chain's expert annotations consistently and significantly outperforms models trained with synthetic CoTs generated by state-of-the-art models like GPT-4.1.</li>
                         <li><strong>Analytical Insights:</strong> We provide a deep dive into how structured reasoning interacts with Retrieval-Augmented Generation (RAG) and propose a new method to improve the faithfulness of the model's reasoning to the visual evidence.</li>
                     </ul>
@@ -548,12 +549,16 @@
           </div>
 
           <h4>3. Toward More Faithful Reasoning</h4>
-          <p>We discovered that models can produce plausible-sounding reasoning without faithfully attending to the specified visual regions. To address this, we proposed a new training strategy that explicitly encourages the model's textual reasoning (the CoT) to align with the visual tokens from the correct region of interest (ROI). This lightweight regularization measurably improves performance, pushing ExGra-Med's accuracy from 60.4% to <strong>62.5%</strong>.</p>
+          <p><strong>A. Component-wise Reasoning Analysis.</strong> Experiments on the S-Chain dataset show that providing ground-truth ROIs yields small gains in diagnostic accuracy, but adding correct chain-of-thought (CoT) steps nearly solves the task, reaching 99% accuracy. This shows that accurate intermediate reasoning makes final predictions almost trivial, highlighting the importance of structured supervision over end-to-end training for interpretable and reliable medical vision-language models.</p>
+          <p><strong>B. Bounding Boxes and Grounded Reasoning.</strong> To study how ROI representations affect visual reasoning, we compare two grounding strategies: <em>1. textual supervision</em>: encodes bounding box coordinates in the training text, and <em>2. visual prompting</em>: highlights ROIs directly on the image. We further test how perturbing or removing ROI information impacts the accuracy and alignment of chain-of-thought (CoT) reasoning with visual evidence.</p>
+          <p><u>Findings:</u> Visual prompting better anchors reasoning to true abnormalities (0.73 Acc) than textual supervision (0.62 Acc), leading to more faithful and clinically grounded CoTs.</p>
           <div class="results-table has-text-centered">
             <h5 class="title is-6" style="margin-bottom: 1rem;">Control experiments evaluating the role of each SV-CoT component</h5>
             <img src="figures/figure_6.png" alt="Visualization showing the alignment between textual reasoning and visual attention on regions of interest" style="max-width: 60%; margin-bottom: 1rem;">
             <p><em><span style="color: #f89a3ce8;">Light peach</span> blocks show ground-truth inputs at test time, while <span style="color: #0686a6;">blue</span>/<span style="color: #16ab16;">green</span> blocks are model-generated. Upper settings use text-based CoTs, and lower settings use visual prompting to ground reasoning in ROIs.</em></p>
           </div>
+
+          <p><strong>C. Towards Faithful Vision-Language Reasoning.</strong> We found that models can generate plausible reasoning without truly attending to the intended visual regions. To address this, we introduced a training strategy that explicitly aligns the model's CoT with visual tokens from the correct ROIs. This lightweight regularization improves ExGra-Med's <strong>accuracy from 60.4% to 62.5%</strong> and <strong>F1 from 59.6% to 61.7%</strong>. While the gains are modest, they underscore that enhancing CoT–ROI alignment is a promising step toward more faithful multimodal reasoning, with its optimal enforcement remaining an open challenge for future research.</p>
         </div>
       </div>
     </div>
